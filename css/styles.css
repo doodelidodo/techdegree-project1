@@ -110,6 +110,15 @@ h1 {
   font-style: normal;
 }
 
+.profession {
+  font-style: italic;
+}
+
+.profession:before {
+  content: ", ";
+  font-style: normal;
+}
+
 .year:before {
   content: ", ";
   font-style: normal;
