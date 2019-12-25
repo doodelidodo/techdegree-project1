@@ -70,15 +70,15 @@ function getRandomQuote(){
 
 
 /*** 
- * `random_bg_color` function
+ * `randomBgColor` function
  * set random background color
  * Ressource: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
  ***/
-function random_bg_color() {
-  var x = Math.floor(Math.random() * 256);
-  var y = Math.floor(Math.random() * 256);
-  var z = Math.floor(Math.random() * 256);
-  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+function randomBgColor() {
+  var red = Math.floor(Math.random() * 256);
+  var green = Math.floor(Math.random() * 256);
+  var blue = Math.floor(Math.random() * 256);
+  var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
   document.body.style.background = bgColor;
 }
 
@@ -114,7 +114,7 @@ function printQuote(){
 
   var div = document.getElementById('quote-box');
   div.innerHTML = quoteMessage;
-  random_bg_color();
+  randomBgColor();
 }
 
 /***
