@@ -121,6 +121,7 @@ function printQuote(){
  * `startTimer` function
  * a 20 sec timer, each time it's called the timer will be reseted
  * Ressource: https://www.w3schools.com/jsref/met_win_setinterval.asp
+ * Ressource: https://stackoverflow.com/questions/11961124/javascript-reset-an-interval
  ***/
 var interval;
 function startTimer() {
