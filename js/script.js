@@ -56,6 +56,16 @@ var quotes = [
 ];
 
 
+/***
+ * `getRandomNumber` function
+ * Parameter: start (number), end(number)
+ * Returns a random Number between the start and the end
+***/
+function getRandomNumber(start, end){
+  var random = Math.floor(Math.random() * (end - start + 1)) + start; 
+    return random;
+}
+
 
 
 /***
@@ -64,7 +74,7 @@ var quotes = [
  * The random number is between 0 and the length -1 of the quotes
 ***/
 function getRandomQuote(){
-  var random = Math.floor(Math.random() * (quotes.length)); 
+  var random = getRandomNumber(0, (quotes.length - 1)); 
   return quotes[random];
 }
 
@@ -75,9 +85,9 @@ function getRandomQuote(){
  * Ressource: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
  ***/
 function randomBgColor() {
-  var red = Math.floor(Math.random() * 256);
-  var green = Math.floor(Math.random() * 256);
-  var blue = Math.floor(Math.random() * 256);
+  var red = getRandomNumber(0, 255);
+  var green = getRandomNumber(0, 255);
+  var blue = getRandomNumber(0, 255);
   var bgColor = "rgb(" + red + "," + green + "," + blue + ")";
   document.body.style.background = bgColor;
 }
@@ -91,10 +101,18 @@ function randomBgColor() {
  * <p class="source"> [source here]
  * <span class="citation"> [citation here] </span>
  * <span class="year"> [year here] </span></p>
- * <span class='profession'>" + quote.profession + "</span>"
+ * <span class="profession"> [profession here] </span>
 ***/
+var oldQuote
 function printQuote(){
   var quote = getRandomQuote();
+  
+  //input frome Nik - checks that the same quote does not come one after the other
+  while(quote === oldQuote) {
+    quote = getRandomQuote();
+  }
+  oldQuote = quote;
+
   var quoteMessage = "<p class='quote'>" + quote.quote + "</p>";
   quoteMessage += "<p class='source'>" + quote.source;
 
@@ -132,7 +150,6 @@ function startTimer() {
 
 /***
  * Prints a quote when the page is loaded & changes the quote every 20s
- * Ressource: https://www.w3schools.com/jsref/met_win_setinterval.asp
  ***/
 printQuote();
 startTimer();
